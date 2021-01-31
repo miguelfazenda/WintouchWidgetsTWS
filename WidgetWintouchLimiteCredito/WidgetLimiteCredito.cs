@@ -49,18 +49,19 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
             //Quando se altera o conteudo da combobox, vai atualizar os dados
             comboBoxFornecedor.SelectedIndexChanged += (sender, e) => { OnRefreshData(); };
             comboBoxFornecedor.TextChanged += (sender, e) => { OnRefreshData(); };
-
-            //Obtem os fornecedores
-            Wintouch.Common.BusinessTier.Terceiros.Filtro.Reset();
-            Wintouch.Common.BusinessTier.Terceiros.FiltrarFornecedores();
-            var lista = Wintouch.Common.BusinessTier.Terceiros.GetList();
-            comboBoxFornecedor.Items.AddRange(lista.wgcterceiros.ToList().Select(x => x.Codigo).ToArray());
         }
 
         Wintouch.Common.Datatier.DsTerceiros.wgcterceirosRow terceiro;
 
         public override void OnRefreshData()
         {
+            //Obtem os fornecedores e preenche a combobox
+            Wintouch.Common.BusinessTier.Terceiros.Filtro.Reset();
+            Wintouch.Common.BusinessTier.Terceiros.FiltrarFornecedores();
+            var lista = Wintouch.Common.BusinessTier.Terceiros.GetList();
+            comboBoxFornecedor.Items.AddRange(lista.wgcterceiros.ToList().Select(x => x.Codigo).ToArray());
+
+            //Limpa a tabela
             dataGridView1.Rows.Clear();
 
             lblNomeFornecedor.Text = "Forncedor não encontrado";
