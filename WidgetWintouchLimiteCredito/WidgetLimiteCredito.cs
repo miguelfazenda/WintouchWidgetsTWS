@@ -73,6 +73,7 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
             {
                 lblNomeFornecedor.Text = terceiro.Nome;
 
+                //preenche a grelha
                 decimal totalEncomendas = LimiteCredito.GetTotalTipoTipoDocEstadoN(terceiro.Codigo, "E");
                 decimal totalGuias = LimiteCredito.GetTotalTipoTipoDocEstadoN(terceiro.Codigo, "H");
 
@@ -89,25 +90,30 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
                 dataGridView1.Rows.Add(new object[] { "Total de crédito utilizado", totalCreditoUtilizado });
                 dataGridView1.Rows.Add(new object[] { "Saldo de crédito", saldo });
 
-                dataGridView1.Rows[0].Cells[0].Style = styleLinhaLimite0;
-                dataGridView1.Rows[0].Cells[1].Style = styleLinhaLimite1;
-
-                dataGridView1.Rows[4].Cells[0].Style = styleLinhaTotalCreditoUtilizado0;
-                dataGridView1.Rows[4].Cells[1].Style = styleLinhaTotalCreditoUtilizado1;
-
-                if(saldo > 0)
-                {
-                    dataGridView1.Rows[5].Cells[0].Style = styleLinhaSaldo0_Pos;
-                    dataGridView1.Rows[5].Cells[1].Style = styleLinhaSaldo1_Pos;
-                }
-                else
-                {
-                    dataGridView1.Rows[5].Cells[0].Style = styleLinhaSaldo0_Neg;
-                    dataGridView1.Rows[5].Cells[1].Style = styleLinhaSaldo1_Neg;
-                }
+                AplicarEstilosLinhas(saldo);
             }
 
             base.OnRefreshData();
+        }
+
+        void AplicarEstilosLinhas(decimal saldo)
+        {
+            dataGridView1.Rows[0].Cells[0].Style = styleLinhaLimite0;
+            dataGridView1.Rows[0].Cells[1].Style = styleLinhaLimite1;
+
+            dataGridView1.Rows[4].Cells[0].Style = styleLinhaTotalCreditoUtilizado0;
+            dataGridView1.Rows[4].Cells[1].Style = styleLinhaTotalCreditoUtilizado1;
+
+            if (saldo > 0)
+            {
+                dataGridView1.Rows[5].Cells[0].Style = styleLinhaSaldo0_Pos;
+                dataGridView1.Rows[5].Cells[1].Style = styleLinhaSaldo1_Pos;
+            }
+            else
+            {
+                dataGridView1.Rows[5].Cells[0].Style = styleLinhaSaldo0_Neg;
+                dataGridView1.Rows[5].Cells[1].Style = styleLinhaSaldo1_Neg;
+            }
         }
     }
 }
