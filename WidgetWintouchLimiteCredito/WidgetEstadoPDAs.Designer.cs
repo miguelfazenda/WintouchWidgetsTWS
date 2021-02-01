@@ -82,7 +82,7 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
             // btnServidores
             // 
             this.btnServidores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnServidores.Location = new System.Drawing.Point(137, 184);
+            this.btnServidores.Location = new System.Drawing.Point(3, 185);
             this.btnServidores.Name = "btnServidores";
             this.btnServidores.Size = new System.Drawing.Size(75, 23);
             this.btnServidores.TabIndex = 7;
