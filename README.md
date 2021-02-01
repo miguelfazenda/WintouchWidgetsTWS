@@ -15,4 +15,4 @@ Ao atualizar, se existir informação a importar a linha do PDA correspondente f
 ![Estado PDAs](https://github.com/miguelfazenda/WintouchWidgetsTWS/raw/master/screenshot-estadoPDAs.png)
 
 # Instalação
-Para instalar, descompacte o ficheiro [WintouchWidgetsTWS.CustomWidget.dll.zip](https://github.com/miguelfazenda/WintouchWidgetsTWS/releases/download/release/WintouchWidgetsTWS.CustomWidget.dll.zip) e coloque os conteudos na diretoria do Wintouch (`C:\Program Files (x86)\WINTOUCH\SGW`). Reinicie o programa, e ao adicionar um novo widget, estes 2 estarão presentes na lista.
+Para instalar, descompacte o ficheiro [WintouchWidgetsTWS.CustomWidget.dll.zip](https://github.com/miguelfazenda/WintouchWidgetsTWS/releases/download/release/WintouchWidgetsTWS.CustomWidget.dll.zip) e coloque os conteúdos na diretoria do Wintouch (`C:\Program Files (x86)\WINTOUCH\SGW`). Reinicie o programa, e ao adicionar um novo widget, estes 2 estarão presentes na lista.
