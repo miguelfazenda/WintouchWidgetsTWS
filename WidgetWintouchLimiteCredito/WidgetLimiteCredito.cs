@@ -47,8 +47,8 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
             styleLinhaSaldo1_Pos.BackColor = Color.Green;
 
             //Quando se altera o conteudo da combobox, vai atualizar os dados
-            comboBoxFornecedor.SelectedIndexChanged += (sender, e) => { OnRefreshData(); };
-            comboBoxFornecedor.TextChanged += (sender, e) => { OnRefreshData(); };
+            comboBoxFornecedor.SelectedIndexChanged += (sender, e) => { ShowLimiteCredito(); };
+            comboBoxFornecedor.TextChanged += (sender, e) => { ShowLimiteCredito(); };
         }
 
         Wintouch.Common.Datatier.DsTerceiros.wgcterceirosRow terceiro;
@@ -59,18 +59,27 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
             Wintouch.Common.BusinessTier.Terceiros.Filtro.Reset();
             Wintouch.Common.BusinessTier.Terceiros.FiltrarFornecedores();
             var lista = Wintouch.Common.BusinessTier.Terceiros.GetList();
+
+            comboBoxFornecedor.Items.Clear();
             comboBoxFornecedor.Items.AddRange(lista.wgcterceiros.ToList().Select(x => x.Codigo).ToArray());
 
+            ShowLimiteCredito();
+
+            base.OnRefreshData();
+        }
+
+        void ShowLimiteCredito()
+        {
             //Limpa a tabela
             dataGridView1.Rows.Clear();
 
             lblNomeFornecedor.Text = "Forncedor não encontrado";
 
             //Procura o fornecedor caso tenha mudado
-            if(terceiro == null || terceiro.Codigo != comboBoxFornecedor.Text)
+            if (terceiro == null || terceiro.Codigo != comboBoxFornecedor.Text)
                 terceiro = Wintouch.Common.BusinessTier.Terceiros.GetItem(comboBoxFornecedor.Text);
 
-            if(terceiro != null)
+            if (terceiro != null)
             {
                 lblNomeFornecedor.Text = terceiro.Nome;
 
@@ -93,8 +102,6 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
 
                 AplicarEstilosLinhas(saldo);
             }
-
-            base.OnRefreshData();
         }
 
         void AplicarEstilosLinhas(decimal saldo)
