@@ -17,6 +17,22 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
         DataGridViewCellStyle styleLinhaTotalCreditoUtilizado0, styleLinhaTotalCreditoUtilizado1;
         DataGridViewCellStyle styleLinhaSaldo0_Pos, styleLinhaSaldo1_Pos;
         DataGridViewCellStyle styleLinhaSaldo0_Neg, styleLinhaSaldo1_Neg;
+
+        override protected string ApplicationID
+        {
+            get
+            {
+                return "WidgetLimiteCredito";
+            }
+        }
+        override protected string ApplicationName
+        {
+            get
+            {
+                return "WidgetLimiteCredito";
+            }
+        }
+
         public WidgetLimiteCredito()
         {
             InitializeComponent();

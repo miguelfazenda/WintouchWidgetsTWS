@@ -16,6 +16,21 @@ namespace WidgetWintouchLimiteCredito.CustomWidget
     {
         DataGridViewCellStyle styleVerde;
 
+        override protected string ApplicationID
+        {
+            get
+            {
+                return "WidgetEstadoPDAs";
+            }
+        }
+        override protected string ApplicationName
+        {
+            get
+            {
+                return "WidgetEstadoPDAs";
+            }
+        }
+
         public WidgetEstadoPDAs()
         {
             InitializeComponent();
